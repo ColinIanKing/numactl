@@ -143,7 +143,7 @@ AC_DEFUN([_AX_AM_OVERRIDE_FINALIZE],
 AC_DEFUN([AX_AM_OVERRIDE_VAR],
 [
   AC_REQUIRE([_AX_AM_OVERRIDE_INITIALIZE])
-  m4_map_args_w([$1],[_AX_AM_OVERRIDE_VAR(],[)])
+  m4_foreach_w([var],[$1],[_AX_AM_OVERRIDE_VAR(m4_defn([var]))])
 ])# AX_OVERRIDE_VAR
 
 
@@ -151,5 +151,5 @@ AC_DEFUN([AX_AM_OVERRIDE_VAR],
 AC_DEFUN([AX_AM_OVERRIDE_FINALIZE],
 [
   AC_REQUIRE([_AX_AM_OVERRIDE_INITIALIZE])
-  m4_map_args_w(_mst_am_override_vars,[_AX_AM_OVERRIDE_FINALIZE(],[)])
+  m4_foreach_w([var],_mst_am_override_vars,[_AX_AM_OVERRIDE_FINALIZE(m4_defn([var]))])
 ]) # AX_AM_OVERRIDE_FINALIZE
